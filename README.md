@@ -3,6 +3,8 @@
 Proyecto frontend del **Trabajo Final de Grado FP DAW**.
 Aplicación web desarrollada con **React + TypeScript + Vite**, orientada a la gestión de almacén y distribución de datáfonos.
 
+El frontend está diseñado siguiendo una **arquitectura modular**, separando claramente páginas, layouts, componentes reutilizables y lógica de negocio, con el objetivo de facilitar la escalabilidad y el trabajo en equipo.
+
 ---
 
 ## 📁 Estructura del proyecto
@@ -61,7 +63,7 @@ Ejemplos:
 ```
 pages/
 ├─ Home.tsx        → /
-├─ Login.tsx       → /login
+├─ Login.tsx       → /login 
 ├─ Equipos.tsx     → /equipos
 ├─ EquipoDetalle.tsx → /equipos/:id
 ├─ Expediciones.tsx
@@ -101,7 +103,7 @@ layouts/
 └─ AuthLayout.tsx   → Layout para login (sin navbar)
 ```
 
-Permiten reutilizar diseño y mantener coherencia visual.
+Permiten reutilizar estructura y contexto visual, evitando duplicación de código y mejorando la mantenibilidad del proyecto.
 
 ---
 
@@ -118,7 +120,7 @@ routes/
 └─ PrivateRoutes.tsx
 ```
 
-Facilita la separación entre rutas públicas, privadas y de autenticación.
+Facilita la separación entre rutas públicas, privadas y de autenticación, mejorando la organización y el control de acceso.
 
 ---
 
@@ -164,27 +166,6 @@ types/
 └─ Expedicion.ts
 ```
 
----
-
-## 🚀 Instalación y ejecución
-
-Instalar dependencias:
-
-```bash
-npm install
-```
-
-Ejecutar el proyecto en modo desarrollo:
-
-```bash
-npm run dev
-```
-
-La aplicación se abrirá por defecto en:
-
-```
-http://localhost:5173
-```
 
 ---
 
@@ -193,7 +174,9 @@ http://localhost:5173
 * React
 * TypeScript
 * Vite
-* React Router
+* React Router DOM
+* Tailwind CSS v4
+* PostCSS
 * ESLint
 
 ---
