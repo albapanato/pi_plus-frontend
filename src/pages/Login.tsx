@@ -1,96 +1,72 @@
 export default function Login() {
   return (
-    <main className="w-full flex items-center justify-center">
-      <div className="flex w-full max-w-xl flex-col items-center">
-        <div className="w-full rounded-xl border border-border-light/50 bg-card-light p-8 shadow-lg md:p-10">
+    <main className="w-100 d-flex justify-content-center">
+      <div className="card shadow-lg w-25">
+        <div className="card-body p-4 p-md-5">
           {/* Header */}
-          <div className="flex flex-col items-center gap-2 pb-6">
-            <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-              <span className="material-symbols-outlined text-primary text-4xl">
+          <div className="text-center mb-4">
+            <div
+              className="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-25 mb-3"
+              style={{ width: "64px", height: "64px" }}
+            >
+              <span className="material-symbols-outlined text-primary fs-2">
                 inventory_2
               </span>
             </div>
 
-            <h1 className="text-center text-[32px] font-bold leading-tight text-text-light">
-              Bienvenido de Nuevo
-            </h1>
-            <p className="text-base text-slate-500">
-              Inicia sesión para gestionar tu inventario.
+            <h1 className="h4 fw-bold mb-1">Bienvenido de nuevo</h1>
+            <p className="text-muted mb-0">
+              Inicia sesión para gestionar tu inventario
             </p>
           </div>
 
-          {/* Form */}
-          <form className="flex flex-col gap-4">
-            {/* Usuario */}
-            <label className="flex flex-col">
-              <span className="pb-2 text-base font-medium text-text-light">
-                Usuario o Email
-              </span>
-
-              <div className="flex">
+          {/* Formulario */}
+          <form className="d-flex flex-column gap-3">
+            <div>
+              <label className="form-label fw-semibold">Usuario o Email</label>
+              <div className="input-group">
                 <input
                   type="text"
+                  className="form-control"
                   placeholder="Ingrese su usuario o email"
-                  className="h-14 w-full rounded-l-lg border border-border-light bg-background-light p-[15px] text-base outline-none focus:ring-2 focus:ring-primary/50"
                 />
-                <div className="flex items-center justify-center rounded-r-lg border border-l-0 border-border-light bg-background-light px-4 text-placeholder-light">
-                  <span className="material-symbols-outlined text-2xl">
-                    person
-                  </span>
-                </div>
+                <span className="input-group-text">
+                  <span className="material-symbols-outlined">person</span>
+                </span>
               </div>
-            </label>
+            </div>
 
-            {/* Contraseña */}
-            <label className="flex flex-col">
-              <span className="pb-2 text-base font-medium text-text-light">
-                Contraseña
-              </span>
-
-              <div className="flex">
+            <div>
+              <label className="form-label fw-semibold">Contraseña</label>
+              <div className="input-group">
                 <input
                   type="password"
+                  className="form-control"
                   placeholder="Ingrese su contraseña"
-                  className="h-14 w-full rounded-l-lg border border-border-light bg-background-light p-[15px] text-base outline-none focus:ring-2 focus:ring-primary/50"
                 />
                 <button
                   type="button"
+                  className="input-group-text"
                   aria-label="Mostrar contraseña"
-                  className="flex items-center justify-center rounded-r-lg border border-l-0 border-border-light bg-background-light px-4 text-placeholder-light"
                 >
-                  <span className="material-symbols-outlined text-2xl">
-                    visibility
-                  </span>
+                  <span className="material-symbols-outlined">visibility</span>
                 </button>
               </div>
-            </label>
+            </div>
 
-            {/* Botón */}
-            <div className="pt-6">
-              <button
-                type="submit"
-                className="h-12 w-full rounded-lg bg-primary text-base font-bold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary"
-              >
-                Iniciar Sesión
+            <div className="d-grid mt-3">
+              <button type="submit" className="btn btn-primary fw-bold">
+                Iniciar sesión
               </button>
             </div>
 
-            {/* Forgot */}
-            <div className="text-center">
-              <a
-                href="#"
-                className="text-sm font-medium text-primary hover:underline"
-              >
+            <div className="text-center mt-3">
+              <a href="#" className="link-primary small">
                 Olvidé mi contraseña
               </a>
             </div>
           </form>
         </div>
-
-        {/* Footer */}
-        <p className="mt-8 text-sm text-slate-500">
-          © 2026 Datafonos Inc. Todos los derechos reservados.
-        </p>
       </div>
     </main>
   );
