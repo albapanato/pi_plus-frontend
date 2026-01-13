@@ -1,4 +1,4 @@
-import "./BusquedaSNForm.css";
+import "../../styles/BusquedaSNForm.css";
 
 
 function BusquedaSNForm() {

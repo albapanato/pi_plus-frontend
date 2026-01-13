@@ -1,7 +1,7 @@
-import BusquedaSNForm from "../components/BusquedaSNForm"
-import BusquedaSNHeader from "../components/BusquedaSNHeader"
-import BusquedaSNResult from "../components/BusquedaSNResult"
-import "./BusquedaSNPage.css"
+import BusquedaSNForm from "../components/busquedaSN/BusquedaSNForm"
+import BusquedaSNHeader from "../components/busquedaSN/BusquedaSNHeader"
+import BusquedaSNResult from "../components/busquedaSN/BusquedaSNResult"
+import "../styles/BusquedaSNPage.css"
 
 
 function BusquedaSNPage() {

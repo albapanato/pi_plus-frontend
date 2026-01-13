@@ -1,4 +1,4 @@
-import "./BusquedaSNHeader.css";
+import "../../styles/BusquedaSNHeader.css";
 
 
  type Props = {
