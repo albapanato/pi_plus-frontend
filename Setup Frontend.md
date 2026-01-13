@@ -6,17 +6,6 @@ del frontend del proyecto **PI-PLUS**.
 Este archivo complementa al README principal y detalla los comandos
 y configuraciones aplicadas durante el desarrollo.
 
----
-
-## 🧱 Stack base del proyecto
-
-* Vite
-* React
-* TypeScript
-* React Router DOM
-* Tailwind CSS v4
-
----
 
 ## 📦 Instalación inicial del proyecto
 
@@ -38,117 +27,61 @@ npm install react-router-dom
 
 ---
 
-## 🎨 Instalación de Tailwind CSS (v4) en Vite
+## 🎨 Instalación de Bootstrap
 
-Tailwind CSS v4 introduce un enfoque **CSS-first**, donde el sistema de temas se define directamente en CSS mediante la directiva `@theme`, en lugar de hacerlo exclusivamente desde el archivo de configuración JavaScript.
+Bootstrap se utiliza como framework de estilos principal del proyecto.
 
-### Dependencias necesarias
-
-```bash
-npm install -D tailwindcss postcss autoprefixer
-```
-
-### Plugin oficial de Tailwind para Vite
-
-Tailwind CSS v4 requiere el plugin específico para Vite:
+Instalación mediante npm:
 
 ```bash
-npm install -D @tailwindcss/vite
+npm install bootstrap
 ```
 
----
-
-## ⚙️ Configuración de Tailwind CSS
-
-### `vite.config.ts`
-
-Se añade el plugin de Tailwind a Vite:
+Importación de Bootstrap en el punto de entrada del proyecto (`main.tsx`):
 
 ```ts
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
-
-export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
-});
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 ```
 
 ---
 
-### `tailwind.config.ts`
+## 🎨 Iconos – Google Material Symbols
 
-En Tailwind CSS v4, el archivo de configuración se utiliza principalmente para definir el **scope de archivos** que Tailwind debe analizar y opciones globales como el modo oscuro.
+El proyecto utiliza **Google Material Symbols** como sistema de iconos.
 
-```ts
-import type { Config } from "tailwindcss";
+Se cargan desde Google Fonts en el archivo `index.html`.
 
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  darkMode: "class",
-  theme: {},
-  plugins: [],
-} satisfies Config;
+Uso básico:
+
+```tsx
+<span className="material-symbols-outlined">dashboard</span>
 ```
 
-Los **tokens de diseño (colores, tipografías, radios, etc.)** se definen en CSS mediante `@theme`.
+No se utilizan librerías adicionales ni componentes React para los iconos.
 
----
+### 🎨 Como se utilizan (Google Material Symbols)
 
-### `postcss.config.js`
+Para usar un icono, se debe incluir un `<span>` con la clase:
 
-```js
-export default {
-  plugins: {
-    "@tailwindcss/postcss": {},
-    autoprefixer: {},
-  },
-};
+```tsx
+<span className="material-symbols-outlined">icon_name</span>
 ```
 
----
+Donde `icon_name` es el nombre del icono proporcionado por Google (por ejemplo: `dashboard`, `inventory_2`, `flare`, etc.).
 
-### `src/index.css`
+Los iconos se cargan globalmente desde `index.html` mediante Google Fonts.
 
-```css
-@import "tailwindcss";
+```html
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-/* Tailwind CSS v4 – Definición del sistema de diseño */
-@theme {
-  --color-primary: #0D47A1;
-
-  --color-background-light: #F7F9FC;
-  --color-background-dark: #101922;
-
-  --color-text-light: #333333;
-  --color-text-dark: #E0E0E0;
-
-  --color-card-light: #FFFFFF;
-  --color-card-dark: #1A2633;
-
-  --color-border-light: #CFDBE7;
-  --color-border-dark: #334155;
-
-  --color-placeholder-light: #64748B;
-  --color-placeholder-dark: #94A3B8;
-
-  --font-display: Manrope, system-ui, sans-serif;
-
-  --radius: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-full: 9999px;
-}
-
-body {
-  font-family: var(--font-display);
-}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
 ```
 
 ---
@@ -169,10 +102,3 @@ http://localhost:5173
 
 ---
 
-## 📝 Notas importantes
-
-* No se utiliza el CDN de Tailwind CSS
-* Tailwind se integra mediante Vite y PostCSS
-* La estructura del proyecto separa rutas, layouts y páginas
-* El Login es la página principal de acceso a la plataforma
-* El sistema de colores y tokens visuales se gestiona mediante variables CSS (`@theme`) propias de Tailwind CSS v4

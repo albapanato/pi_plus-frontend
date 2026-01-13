@@ -3,7 +3,16 @@
 Proyecto frontend del **Trabajo Final de Grado FP DAW**.
 Aplicación web desarrollada con **React + TypeScript + Vite**, orientada a la gestión de almacén y distribución de datáfonos.
 
-El frontend está diseñado siguiendo una **arquitectura modular**, separando claramente páginas, layouts, componentes reutilizables y lógica de negocio, con el objetivo de facilitar la escalabilidad y el trabajo en equipo.
+El frontend está organizado siguiendo un flujo claro de responsabilidades:
+
+**URL → Rutas → Layouts → Páginas → Componentes**
+
+- Las **rutas** gestionan las URLs de la aplicación.
+- Los **layouts** definen la estructura común (header, sidebar, footer).
+- Las **páginas** representan cada vista principal.
+- Los **componentes** son piezas reutilizables que construyen la interfaz.
+
+Esta estructura facilita el mantenimiento, la reutilización de código y el trabajo en equipo.
 
 ---
 
@@ -17,9 +26,19 @@ frontend/
 ├─ src/
 │  ├─ assets/
 │  ├─ components/
+│  │  ├─ dashboard/
+│  │  │  ├─ GridBoard.tsx
+│  │  │  ├─ GridCard.tsx
+│  │  │  └─ RecentActivity.tsx
+│  │  ├─ Sidebar.tsx
+│  │  ├─ Footer.tsx
+│  │  ├─ Button.tsx
+│  │  └─ Modal.tsx
 │  ├─ pages/
 │  ├─ routes/
 │  ├─ layouts/
+│  │  ├─ AppLayout.tsx
+│  │  └─ AuthLayout.tsx
 │  ├─ services/
 │  ├─ hooks/
 │  ├─ types/
@@ -54,102 +73,84 @@ Archivo principal de la aplicación.
 
 ---
 
+### `routes/`
+
+Contiene la definición de las rutas de la aplicación.
+
+Aquí se relacionan las URLs con las páginas y los layouts correspondientes.
+
+Ejemplo:
+
+```
+routes/
+├─ AppRoutes.tsx      → Rutas principales de la aplicación
+```
+
+---
+
+### `layouts/`
+
+Define las estructuras base que envuelven a las páginas.
+
+Los layouts se aplican desde las rutas y permiten reutilizar estructura visual.
+
+Ejemplo:
+
+```
+layouts/
+├─ AppLayout.tsx   → Sidebar + header + footer
+└─ AuthLayout.tsx  → Layout para login y vistas públicas
+```
+
+---
+
 ### `pages/`
 
-Cada archivo representa una **página completa** de la aplicación y está asociada a una ruta.
+Cada archivo representa una página completa asociada a una ruta concreta.
 
-Ejemplos:
 
 ```
 pages/
-├─ Home.tsx        → /
+├─ Dashboard.tsx    → Vista principal tras login
 ├─ Login.tsx       → /login 
-├─ Equipos.tsx     → /equipos
-├─ EquipoDetalle.tsx → /equipos/:id
-├─ Expediciones.tsx
-└─ NotFound.tsx
 ```
 
 ---
 
 ### `components/`
 
-Componentes reutilizables que se usan dentro de las páginas.
+Componentes reutilizables que construyen las páginas.
+No representan rutas por sí mismos.
 
-Ejemplos:
 
 ```
 components/
-├─ Navbar.tsx
+├─ dashboard/
+│  ├─ GridBoard.tsx       → Agrupa los GridCard del dashboard
+│  ├─ GridCard.tsx        → Representa cada tarjeta GridCard individual
+│  └─ RecentActivity.tsx  → Muestra la actividad reciente
+├─ Sidebar.tsx
+├─ Header.tsx
 ├─ Footer.tsx
-├─ Button.tsx
-├─ Modal.tsx
-└─ EquipoCard.tsx
 ```
-
-Estos componentes **no representan rutas**, solo partes visuales o funcionales.
-
----
-
-### `layouts/`
-
-Define estructuras comunes para varias páginas.
-
-Ejemplos:
-
-```
-layouts/
-├─ MainLayout.tsx   → Navbar + contenido principal
-└─ AuthLayout.tsx   → Layout para login (sin navbar)
-```
-
-Permiten reutilizar estructura y contexto visual, evitando duplicación de código y mejorando la mantenibilidad del proyecto.
-
----
-
-### `routes/`
-
-Contiene la organización de las rutas de la aplicación.
-
-Ejemplo:
-
-```
-routes/
-├─ AppRoutes.tsx
-├─ AuthRoutes.tsx
-└─ PrivateRoutes.tsx
-```
-
-Facilita la separación entre rutas públicas, privadas y de autenticación, mejorando la organización y el control de acceso.
 
 ---
 
 ### `services/`
 
-Encargada de la comunicación con el backend (API REST).
+Contiene la lógica de comunicación con el backend.
+No forma parte directa del flujo visual de la aplicación.
 
-Ejemplos:
-
-```
-services/
-├─ auth.service.ts
-├─ equipos.service.ts
-└─ expediciones.service.ts
-```
+--> ( NO HA SIDO AUN CREADO )
 
 ---
 
 ### `hooks/`
 
-Hooks personalizados para encapsular lógica reutilizable.
+Hooks personalizados que encapsulan lógica reutilizable.
+Se utilizan dentro de páginas y componentes.
 
-Ejemplos:
-
-```
-hooks/
-├─ useAuth.ts
-└─ useEquipos.ts
-```
+--> ( NO HA SIDO AUN CREADO )
 
 ---
 
@@ -157,15 +158,7 @@ hooks/
 
 Definición de tipos e interfaces TypeScript para mantener tipado fuerte.
 
-Ejemplos:
-
-```
-types/
-├─ Usuario.ts
-├─ Equipo.ts
-└─ Expedicion.ts
-```
-
+--> ( NO HA SIDO AUN CREADO )
 
 ---
 
@@ -175,11 +168,13 @@ types/
 * TypeScript
 * Vite
 * React Router DOM
-* Tailwind CSS v4
-* PostCSS
-* ESLint
+* Bootstrap
+* Bootstrap Icons (Material Symbols – Google)
+* CSS personalizado
 
 ---
+
+
 
 ## 👩‍💻 Autores
 
