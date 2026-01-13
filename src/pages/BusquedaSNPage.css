@@ -1,0 +1,14 @@
+.sn-page {
+  padding: 32px;
+  width: 100dvh;
+  height: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.sn-page section {
+  margin-bottom: 32px;
+}

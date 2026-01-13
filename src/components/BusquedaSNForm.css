@@ -1,0 +1,20 @@
+.sn-form form {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+
+.sn-form input {
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #ccc;
+}
+
+.sn-form button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-items: end;
+}
