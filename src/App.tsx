@@ -1,14 +1,11 @@
+import AppRoutes from "./routes/AppRoutes"
 import Busqueda_SN from "./pages/BusquedaSNPage"
 
-
 function App() {
-
-
-  return (
-    <>
-      <Busqueda_SN />
-    </>
-  )
+  return <>
+  <AppRoutes />
+  <Busqueda_SN />
+  </>
 }
 
-export default App
+export default App;
