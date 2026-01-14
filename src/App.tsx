@@ -1,9 +1,9 @@
-import AppRoutes from "./routes/AppRoutes"
+//import AppRoutes from "./routes/AppRoutes"
 import Busqueda_SN from "./pages/BusquedaSNPage"
 
 function App() {
   return <>
-  <AppRoutes />
+  {/* <AppRoutes /> */}
   <Busqueda_SN />
   </>
 }
