@@ -4,3 +4,10 @@ body {
   background-color: #f8f9fa;
   margin: 0;
 }
+
+
+.material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: middle;
+}
