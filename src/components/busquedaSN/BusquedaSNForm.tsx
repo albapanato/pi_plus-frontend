@@ -1,3 +1,5 @@
+import "../../styles/BusquedaSNForm.css";
+
 function BusquedaSNForm() {
   return (
     //

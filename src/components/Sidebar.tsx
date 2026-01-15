@@ -25,10 +25,10 @@ export default function Sidebar() {
 
         {/* Navegación */}
         <nav className="nav nav-pills flex-column gap-1">
-          <NavItem to="/dashboard" icon="search" label="Búsqueda por SN" />
-          <NavItem to="/equipos" icon="inventory_2" label="Ficha Equipo" />
-          <NavItem to="/almacen" icon="map" label="Mapa Almacén" />
-          <NavItem to="/ordenes" icon="list_alt" label="Listado Órdenes" />
+          <NavItem to="/busqueda" icon="search" label="Búsqueda por SN" />
+          <NavItem to="/#" icon="inventory_2" label="Ficha Equipo" />
+          <NavItem to="/#" icon="map" label="Mapa Almacén" />
+          <NavItem to="/#" icon="list_alt" label="Listado Órdenes" />
         </nav>
       </div>
     </aside>

@@ -1,4 +1,4 @@
-import "./BusquedaSNResult.css";
+import "../../styles/BusquedaSNResult.css";
 
 function BusquedaSNResult() {
   return (

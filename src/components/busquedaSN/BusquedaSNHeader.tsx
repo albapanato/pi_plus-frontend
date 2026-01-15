@@ -1,6 +1,9 @@
-type Props = {
-  onAdd: () => void;
-};
+import "../../styles/BusquedaSNHeader.css";
+
+ type Props = {
+    onAdd: () => void;
+ };
+
 
 function BusquedaSNHeader({ onAdd }: Props) {
   return (
