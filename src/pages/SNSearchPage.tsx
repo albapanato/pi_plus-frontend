@@ -1,6 +1,6 @@
-import BusquedaSNForm from "../components/SNSearch/SNSearchForm"
-import BusquedaSNHeader from "../components/SNSearch/SNSearchHeader"
-import BusquedaSNResult from "../components/SNSearch/SNSearchResult"
+import SNSearchForm from "../components/SNSearch/SNSearchForm"
+import SNSearchHeader from "../components/SNSearch/SNSearchHeader"
+import SNSearchResult from "../components/SNSearch/SNSearchResult"
 
 
 function SNSearchPage() {
@@ -11,10 +11,10 @@ function SNSearchPage() {
     <div className="container py-5">
       <div className="card shadow-sm">
         <div className="card-body">
-          <BusquedaSNHeader onAdd={onHandleAdd} />
-          <BusquedaSNForm />
+          <SNSearchHeader onAdd={onHandleAdd} />
+          <SNSearchForm />
           <hr className="my-4" />
-          <BusquedaSNResult />
+          <SNSearchResult />
         </div>
       </div>
     </div>
