@@ -1,11 +1,10 @@
-import "../../styles/BusquedaSNHeader.css";
 
  type Props = {
     onAdd: () => void;
  };
 
 
-function BusquedaSNHeader({ onAdd }: Props) {
+function SNSearchHeader({ onAdd }: Props) {
   return (
     <div className="d-flex align-items-center justify-content-between mb-4">
       <div>
@@ -21,4 +20,4 @@ function BusquedaSNHeader({ onAdd }: Props) {
   );
 }
 
-export default BusquedaSNHeader;
+export default SNSearchHeader;

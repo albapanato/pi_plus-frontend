@@ -1,9 +1,6 @@
-import "../../styles/BusquedaSNForm.css";
 
-function BusquedaSNForm() {
+function SNSearchForm() {
   return (
-    //
-
     <form className="mb-3">
       <div className="row g-5 align-items-center">
         {/* INPUT ocupa todo */}
@@ -36,4 +33,4 @@ function BusquedaSNForm() {
   );
 }
 
-export default BusquedaSNForm;
+export default SNSearchForm;

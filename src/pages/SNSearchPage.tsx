@@ -1,9 +1,9 @@
-import BusquedaSNForm from "../components/busquedaSN/BusquedaSNForm"
-import BusquedaSNHeader from "../components/busquedaSN/BusquedaSNHeader"
-import BusquedaSNResult from "../components/busquedaSN/BusquedaSNResult"
-import "../styles/BusquedaSNPage.css"
+import BusquedaSNForm from "../components/SNSearch/SNSearchForm"
+import BusquedaSNHeader from "../components/SNSearch/SNSearchHeader"
+import BusquedaSNResult from "../components/SNSearch/SNSearchResult"
 
-function BusquedaSNPage() {
+
+function SNSearchPage() {
   const onHandleAdd = () => {
     alert("Agregar equipo");
   };
@@ -21,4 +21,4 @@ function BusquedaSNPage() {
   );
 }
 
-export default BusquedaSNPage;
+export default SNSearchPage;

@@ -3,7 +3,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import AppLayout from "../layouts/AppLayout";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
-import BusquedaSNPage from "../pages/BusquedaSNPage";
+import SNSearchPage from "../pages/SNSearchPage";
 
 
 export default function AppRoutes() {
@@ -19,7 +19,7 @@ export default function AppRoutes() {
       <Route element={<AppLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         {/* Ejemplo futuro */}
-        <Route path="/busqueda" element={<BusquedaSNPage />} />
+        <Route path="/search" element={<SNSearchPage />} />
       </Route>
     </Routes>
   );

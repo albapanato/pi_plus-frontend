@@ -1,10 +1,10 @@
 import AppRoutes from "./routes/AppRoutes"
-import Busqueda_SN from "./pages/BusquedaSNPage"
+import SNSearch from "./pages/SNSearchPage"
 
 function App() {
   return <>
   <AppRoutes />
-  <Busqueda_SN />
+  <SNSearch />
   </>
 }
 

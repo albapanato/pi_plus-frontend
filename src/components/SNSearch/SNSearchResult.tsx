@@ -1,6 +1,6 @@
-import "../../styles/BusquedaSNResult.css";
+import "../../styles/SNSearchResult.css";
 
-function BusquedaSNResult() {
+function SNSearchResult() {
   return (
     <div className="card border-0 bg-light">
       <div className="card-body">
@@ -69,4 +69,4 @@ function BusquedaSNResult() {
   );
 }
 
-export default BusquedaSNResult;
+export default SNSearchResult;
