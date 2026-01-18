@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   return (
-    <aside className="border-end bg-light p-3" style={{ width: "400px" }}>
+    <aside className="border-end bg-light p-3" style={{ width: "300px" }}>
       <div className="d-flex flex-column gap-4 h-100">
         {/* Usuario */}
         <div className="d-flex align-items-center gap-3">
@@ -25,7 +25,8 @@ export default function Sidebar() {
 
         {/* Navegación */}
         <nav className="nav nav-pills flex-column gap-1">
-          <NavItem to="/busqueda" icon="search" label="Búsqueda por SN" />
+          <NavItem to="/dashboard" icon="dashboard" label="Inicio" />
+          <NavItem to="/search" icon="search" label="Búsqueda por SN" />
           <NavItem to="/#" icon="inventory_2" label="Ficha Equipo" />
           <NavItem to="/#" icon="map" label="Mapa Almacén" />
           <NavItem to="/#" icon="list_alt" label="Listado Órdenes" />

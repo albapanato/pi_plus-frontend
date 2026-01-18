@@ -18,7 +18,6 @@ export default function AppRoutes() {
       {/* Rutas privadas / app */}
       <Route element={<AppLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* Ejemplo futuro */}
         <Route path="/search" element={<SNSearchPage />} />
       </Route>
     </Routes>

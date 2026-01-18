@@ -1,7 +1,7 @@
 export default function Login() {
   return (
-    <main className="w-100 d-flex justify-content-center">
-      <div className="card shadow-lg w-25">
+    <main className="d-flex justify-content-center">
+      <div className="card shadow-lg">
         <div className="card-body p-4 p-md-5">
           {/* Header */}
           <div className="text-center mb-4">
