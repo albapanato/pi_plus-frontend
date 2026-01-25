@@ -3,7 +3,7 @@
 export default function Header() {
   return (
     <header
-      className="border-bottom bg-light d-flex align-items-center justify-content-center gap-2"
+      className="border-bottom bg-light d-flex align-items-center justify-content-start gap-2 ms-4"
       style={{ height: "50px" }}
     >
       <span className="material-symbols-outlined text-primary">

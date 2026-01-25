@@ -1,10 +1,8 @@
-import AppRoutes from "./routes/AppRoutes"
-import SNSearch from "./pages/SNSearchPage"
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return <>
   <AppRoutes />
-  <SNSearch />
   </>
 }
 
