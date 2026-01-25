@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import SNSearchPage from "../pages/SNSearchPage";
 import StockUbicationPage from "../pages/StockUbicationPage";
+import TerminalFormPage from "../pages/TerminalFormPage";
 
 
 
@@ -22,6 +23,7 @@ export default function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/search" element={<SNSearchPage />} />
         <Route path="/stock" element={<StockUbicationPage/>} />
+        <Route path="/terminal-form" element={<TerminalFormPage/>} />
       </Route>
     </Routes>
   );

@@ -27,7 +27,7 @@ export default function Sidebar() {
         <nav className="nav nav-pills flex-column gap-1">
           <NavItem to="/dashboard" icon="dashboard" label="Inicio" />
           <NavItem to="/search" icon="search" label="Búsqueda por SN" />
-          <NavItem to="/#" icon="inventory_2" label="Ficha Equipo" />
+          <NavItem to="/terminal-form" icon="inventory_2" label="Ficha Equipo" />
           <NavItem to="/stock" icon="map" label="Mapa Almacén" />
           <NavItem to="/#" icon="list_alt" label="Listado Órdenes" />
         </nav>
