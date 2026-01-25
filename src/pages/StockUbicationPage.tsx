@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ApiDetallesAlmacen } from "../mocks/apiDetallesAlmacen";
 import { apiDetallesAlmacenMock } from "../mocks/apiDetallesAlmacen";
-import PasilloAlmacen from "../components/stockUbication/PasilloAlmacen";
+import Aisle from "../components/stockUbication/Aisle";
 import AddPalletButton from "../components/stockUbication/AddPalletButton";
 import AddBoxButton from "../components/stockUbication/AddBoxButton";
 import FormBox from "../components/stockUbication/forms/FormBox";
@@ -269,7 +269,7 @@ export default function StockUbicationPage() {
           <div className="d-flex flex-column gap-1">
             {Array.from(pasillosMap.entries()).map(
               ([pasilloId, detallesPasillo]) => (
-                <PasilloAlmacen
+                <Aisle
                   key={pasilloId}
                   pasilloId={pasilloId}
                   numero={detallesPasillo[0].pasillo.numero}
