@@ -4,6 +4,8 @@ import AppLayout from "../layouts/AppLayout";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import SNSearchPage from "../pages/SNSearchPage";
+import StockUbicationPage from "../pages/StockUbicationPage";
+
 
 
 export default function AppRoutes() {
@@ -19,6 +21,7 @@ export default function AppRoutes() {
       <Route element={<AppLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/search" element={<SNSearchPage />} />
+        <Route path="/stock" element={<StockUbicationPage/>} />
       </Route>
     </Routes>
   );
