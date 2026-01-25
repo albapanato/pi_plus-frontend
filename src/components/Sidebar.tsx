@@ -28,7 +28,7 @@ export default function Sidebar() {
           <NavItem to="/dashboard" icon="dashboard" label="Inicio" />
           <NavItem to="/search" icon="search" label="Búsqueda por SN" />
           <NavItem to="/#" icon="inventory_2" label="Ficha Equipo" />
-          <NavItem to="/#" icon="map" label="Mapa Almacén" />
+          <NavItem to="/stock" icon="map" label="Mapa Almacén" />
           <NavItem to="/#" icon="list_alt" label="Listado Órdenes" />
         </nav>
       </div>
