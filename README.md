@@ -1,46 +1,78 @@
-# PI-Plus Frontend
+# PI-PLUS Frontend
 
-Proyecto frontend del **Trabajo Final de Grado FP DAW**.
-Aplicación web desarrollada con **React + TypeScript + Vite**, orientada a la gestión de almacén y distribución de datáfonos.
+Proyecto frontend del **Proyecto Intermodular – FP DAW**.  
+Aplicación web desarrollada con **React + TypeScript + Vite**, orientada a la **gestión de almacén y control de datáfonos**.
 
-El frontend está organizado siguiendo un flujo claro de responsabilidades:
+El frontend sigue un flujo claro y predecible de responsabilidades:
 
 **URL → Rutas → Layouts → Páginas → Componentes**
 
-- Las **rutas** gestionan las URLs de la aplicación.
-- Los **layouts** definen la estructura común (header, sidebar, footer).
-- Las **páginas** representan cada vista principal.
-- Los **componentes** son piezas reutilizables que construyen la interfaz.
+Este enfoque facilita el mantenimiento, la escalabilidad y el trabajo en equipo.
 
-Esta estructura facilita el mantenimiento, la reutilización de código y el trabajo en equipo.
+---
+
+## 🧭 Flujo de la aplicación
+
+1. **URL**  
+   El usuario accede a una ruta concreta (`/login`, `/dashboard`, `/stock-ubicacion`, etc.).
+
+2. **Routes (`AppRoutes`)**  
+   Se decide qué página cargar y qué layout aplicar.
+
+3. **Layouts**  
+   Definen la estructura visual común (sidebar, header, footer).
+
+4. **Pages**  
+   Representan vistas completas asociadas a una URL.
+
+5. **Components**  
+   Piezas reutilizables que construyen cada página.
 
 ---
 
 ## 📁 Estructura del proyecto
 
-El proyecto sigue una estructura modular que facilita el mantenimiento, la escalabilidad y el trabajo en equipo.
-
-```
 frontend/
 ├─ public/
 ├─ src/
 │  ├─ assets/
+│  │  └─ react.svg
 │  ├─ components/
 │  │  ├─ dashboard/
 │  │  │  ├─ GridBoard.tsx
 │  │  │  ├─ GridCard.tsx
 │  │  │  └─ RecentActivity.tsx
-│  │  ├─ Sidebar.tsx
+│  │  ├─ SNSearch/
+│  │  │  ├─ SNSearchForm.tsx
+│  │  │  ├─ SNSearchHeader.tsx
+│  │  │  └─ SNSearchResult.tsx
+│  │  ├─ stockUbication/
+│  │  │  ├─ forms/
+│  │  │  │  ├─ AddBoxButton.tsx
+│  │  │  │  └─ AddPalletButton.tsx
+│  │  │  ├─ Aisle.tsx
+│  │  │  ├─ Shelf.tsx
+│  │  │  └─ Slot.tsx
+│  │  ├─ Header.tsx
 │  │  ├─ Footer.tsx
-│  │  ├─ Button.tsx
-│  │  └─ Modal.tsx
-│  ├─ pages/
-│  ├─ routes/
+│  │  └─ Sidebar.tsx
+│  ├─ hooks/
 │  ├─ layouts/
 │  │  ├─ AppLayout.tsx
 │  │  └─ AuthLayout.tsx
+│  ├─ mocks/
+│  │  ├─ apiDatafonos.ts
+│  │  ├─ apiDetallesAlmacen.ts
+│  │  └─ apiDetallesPale.ts
+│  ├─ pages/
+│  │  ├─ Dashboard.tsx
+│  │  ├─ Login.tsx
+│  │  ├─ SNSearchPage.tsx
+│  │  └─ StockUbicationPage.tsx
+│  ├─ routes/
+│  │  └─ AppRoutes.tsx
 │  ├─ services/
-│  ├─ hooks/
+│  ├─ styles/
 │  ├─ types/
 │  ├─ App.tsx
 │  ├─ main.tsx
@@ -48,137 +80,99 @@ frontend/
 ├─ index.html
 ├─ package.json
 └─ vite.config.ts
-```
 
 ---
 
 ## 📄 Descripción de carpetas y archivos
 
 ### `main.tsx`
-
-Punto de entrada de la aplicación.
-Se encarga de montar la aplicación React y envolverla con el sistema de enrutado.
-
-**No se definen rutas aquí**, solo se inicializa la app.
+Punto de entrada de la aplicación.  
+Inicializa React, React Router y los estilos globales (Bootstrap).
 
 ---
 
 ### `App.tsx`
-
-Archivo principal de la aplicación.
-
-* Define el **mapa de rutas**
-* Decide qué página se muestra según la URL
-* No contiene lógica de negocio ni diseño complejo
+Componente raíz de la aplicación.  
+Carga el sistema de rutas principal.
 
 ---
 
-### `routes/`
-
-Contiene la definición de las rutas de la aplicación.
-
-Aquí se relacionan las URLs con las páginas y los layouts correspondientes.
-
-Ejemplo:
-
-```
-routes/
-├─ AppRoutes.tsx      → Rutas principales de la aplicación
-```
+### `routes/AppRoutes.tsx`
+Define las rutas de la aplicación y decide qué layout y página se renderizan según la URL.
 
 ---
 
 ### `layouts/`
+Define las **capas visuales** de la aplicación.
 
-Define las estructuras base que envuelven a las páginas.
-
-Los layouts se aplican desde las rutas y permiten reutilizar estructura visual.
-
-Ejemplo:
-
-```
-layouts/
-├─ AppLayout.tsx   → Sidebar + header + footer
-└─ AuthLayout.tsx  → Layout para login y vistas públicas
-```
+- `AppLayout.tsx` → Zona privada (sidebar + header + contenido)
+- `AuthLayout.tsx` → Zona pública (login)
 
 ---
 
 ### `pages/`
+Cada archivo representa una **vista completa** asociada a una URL.
 
-Cada archivo representa una página completa asociada a una ruta concreta.
-
-
-```
-pages/
-├─ Dashboard.tsx    → Vista principal tras login
-├─ Login.tsx       → /login 
-```
+- `Dashboard.tsx`
+- `Login.tsx`
+- `SNSearchPage.tsx`
+- `StockUbicationPage.tsx`
 
 ---
 
 ### `components/`
-
 Componentes reutilizables que construyen las páginas.
-No representan rutas por sí mismos.
 
+#### Dashboard
+Componentes visuales del dashboard principal.
 
-```
-components/
-├─ dashboard/
-│  ├─ GridBoard.tsx       → Agrupa los GridCard del dashboard
-│  ├─ GridCard.tsx        → Representa cada tarjeta GridCard individual
-│  └─ RecentActivity.tsx  → Muestra la actividad reciente
-├─ Sidebar.tsx
-├─ Header.tsx
-├─ Footer.tsx
-```
+#### SNSearch
+Componentes para la búsqueda de datáfonos por número de serie.
+
+#### StockUbication
+Componentes que representan el mapa del almacén:
+- Pasillos (Aisle)
+- Estanterías (Shelf)
+- Huecos (Slot)
+- Formularios de cajas y palés
+
+---
+
+### `mocks/`
+Simulación de respuestas de la API backend durante el desarrollo.
 
 ---
 
 ### `services/`
-
-Contiene la lógica de comunicación con el backend.
-No forma parte directa del flujo visual de la aplicación.
-
---> ( NO HA SIDO AUN CREADO )
+Contendrá la lógica de comunicación real con el backend (pendiente).
 
 ---
 
 ### `hooks/`
-
-Hooks personalizados que encapsulan lógica reutilizable.
-Se utilizan dentro de páginas y componentes.
-
---> ( NO HA SIDO AUN CREADO )
+Hooks personalizados para encapsular lógica reutilizable (pendiente).
 
 ---
 
 ### `types/`
-
-Definición de tipos e interfaces TypeScript para mantener tipado fuerte.
-
---> ( NO HA SIDO AUN CREADO )
+Interfaces y tipos TypeScript compartidos (pendiente).
 
 ---
 
 ## 🛠 Tecnologías utilizadas
 
-* React
-* TypeScript
-* Vite
-* React Router DOM
-* Bootstrap
-* Bootstrap Icons (Material Symbols – Google)
-* CSS personalizado
+- React
+- TypeScript
+- Vite
+- React Router DOM
+- Bootstrap
+- Google Material Symbols
+- CSS personalizado
 
 ---
 
-
-
 ## 👩‍💻 Autores
 
-* **Ian Tauzy**
-* **Alba Panato Alegre**
+- **Ian Tauzy**
+- **Alba Panato Alegre**
 
-Proyecto desarrollado como parte del **Proyecto Intermodular del FP Superior en Desarrollo de Aplicaciones Web (DAW)**.
+Proyecto desarrollado como parte del **Proyecto Intermodular del FP Superior en Desarrollo de Aplicaciones Web (DAW) - IES Doctor Balmis**.

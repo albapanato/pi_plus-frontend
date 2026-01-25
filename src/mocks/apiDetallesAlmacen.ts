@@ -98,41 +98,6 @@ export const apiDetallesAlmacenMock: ApiDetallesAlmacen[] = [
       { id: 104, etiqueta: "A-1-2-04" },
     ],
   },
-{
-    idHueco: 2,
-    referencia: "A-1-2",
-    almacen: {
-      id: 1,
-      nombre: "ALM-01",
-    },
-    pasillo: {
-      id: 1,
-      numero: 1,
-    },
-    estanteria: {
-      id: 1,
-      descripcion: "A",
-      nivel: 3,
-      capacidadMaxCajas: 8,
-    },
-    pale: {
-      id: 10,
-      descripcion: "Pale PAX A920",
-      material: "plastico",
-      tipo: "europeo",
-      capacidadMaxCajas: 8,
-    },
-    ocupacionActual: 6,
-    cajas: [
-      { id: 101, etiqueta: "A-1-2-01" },
-      { id: 102, etiqueta: "A-1-2-02" },
-      { id: 103, etiqueta: "A-1-2-03" },
-      { id: 104, etiqueta: "A-1-2-04" },
-    ],
-  },
-
-
-
 
   {
     idHueco: 3,
@@ -172,8 +137,7 @@ export const apiDetallesAlmacenMock: ApiDetallesAlmacen[] = [
       { id: 210, etiqueta: "B-2-1-10" },
     ],
   },
-
-
+  
   {
     idHueco: 4,
     referencia: "A-2-1",
