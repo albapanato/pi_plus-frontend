@@ -11,3 +11,20 @@ body {
   line-height: 1;
   vertical-align: middle;
 }
+/* SNSearch: avoid focus halo on non-editable fields */
+.sn-search-page .form-control[readonly]:focus,
+.sn-search-page .form-control:read-only:focus,
+.sn-search-page textarea.form-control[readonly]:focus,
+.sn-search-page textarea.form-control:read-only:focus {
+  border-color: var(--bs-border-color);
+  box-shadow: none;
+  outline: none;
+}
+
+.sn-search-page .form-control[readonly],
+.sn-search-page .form-control:read-only,
+.sn-search-page textarea.form-control[readonly],
+.sn-search-page textarea.form-control:read-only {
+  cursor: default;
+  caret-color: transparent;
+}

@@ -16,7 +16,7 @@ export default function AppLayout() {
 
         {/* Contenido principal */}
         <div className="flex-grow-1 d-flex flex-column">
-          <main className="flex-grow-1 p-4">
+          <main className="flex-grow-1">
             <Outlet />
           </main>
 
