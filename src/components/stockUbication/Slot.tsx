@@ -10,7 +10,7 @@ export default function HuecoAlmacen({
   onClick,
 }: HuecoAlmacenProps) {
   const { ocupacionActual, estanteria, referencia } = ubicacion;
-  
+  console.log("ubicacion:",ubicacion);
   const ratio = ocupacionActual / estanteria.capacidadMaxCajas;
 
   const getBgClass = () => {
@@ -30,8 +30,8 @@ export default function HuecoAlmacen({
         cursor: "pointer",
       }}
       title={`Ubicación ${referencia} (${ocupacionActual}/${estanteria.capacidadMaxCajas})`}
-      onClick={() => onClick?.(ubicacion)}
-    >
+      onClick={() => onClick?.(ubicacion)}>
+
       {ocupacionActual}/{estanteria.capacidadMaxCajas}
       {(ubicacion.pale!==null&&ubicacion.ocupacionActual===0)?(
         <div className="w-75 d-flex justify-content-center p-1 bg-warning bg-opacity-75">

@@ -9,7 +9,7 @@ import FormPallet from "../components/stockUbication/forms/FormPallet";
 
 export default function StockUbicationPage() {
   const [detalles, setDetalles] = useState<ApiDetallesAlmacen[]>([]);
-  const [huecoSeleccionado, setHuecoSeleccionado] = useState<ApiDetallesAlmacen | null>(null);
+  const [huecoSeleccionado, setHuecoSeleccionado] = useState<ApiDetallesAlmacen | null>();
   const [mostrarFormCaja, setMostrarFormCaja] = useState(false);
   const [huecoActivo, setHuecoActivo] = useState<ApiDetallesAlmacen | null>(null);
  const [mostrarFormPallet, setMostrarFormPallet] = useState(false);
