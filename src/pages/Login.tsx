@@ -1,9 +1,17 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { apiUrl, getAuthenticatedUser } from "../auth/session";
+import { apiUrl, getAuthenticatedUser, saveAuthUserToCookie } from "../auth/session";
 
 type LoginLocationState = {
   skipSessionCheck?: boolean;
+};
+
+type LoginResponse = {
+  message?: string;
+  error?: string;
+  user?: string;
+  username?: string;
+  roles?: string;
 };
 
 export default function Login() {
@@ -70,11 +78,16 @@ export default function Login() {
         body: JSON.stringify({ username: username.trim(), password }),
       });
 
-      const data = (await response.json().catch(() => null)) as { message?: string; error?: string } | null;
+      const data = (await response.json().catch(() => null)) as LoginResponse | null;
 
       if (!response.ok) {
         throw new Error(data?.error || data?.message || "No se pudo iniciar sesión.");
       }
+
+      saveAuthUserToCookie({
+        username: data?.user || data?.username || username.trim(),
+        roles: data?.roles || "",
+      });
 
       navigate("/dashboard", { replace: true });
     } catch (error) {

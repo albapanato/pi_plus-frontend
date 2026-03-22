@@ -1,10 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { logoutUser } from "../auth/session";
+import { getAuthenticatedUser, getAuthUserFromCookie, logoutUser, type AuthUser } from "../auth/session";
+
+function formatRoles(roles: string): string {
+  const cleaned = roles.replace(/[\[\]]/g, "").replace(/ROLE_/g, "").trim();
+  return cleaned || "Sin rol";
+}
 
 export default function Sidebar() {
   const navigate = useNavigate();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [authUser, setAuthUser] = useState<AuthUser | null>(() => getAuthUserFromCookie());
+
+  useEffect(() => {
+    if (authUser) {
+      return;
+    }
+
+    let isMounted = true;
+
+    const loadUser = async () => {
+      const user = await getAuthenticatedUser();
+      if (isMounted && user) {
+        setAuthUser(user);
+      }
+    };
+
+    void loadUser();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [authUser]);
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -12,6 +39,7 @@ export default function Sidebar() {
     try {
       await logoutUser();
     } finally {
+      setAuthUser(null);
       navigate("/login", { replace: true, state: { skipSessionCheck: true } });
     }
   };
@@ -32,8 +60,8 @@ export default function Sidebar() {
             }}
           />
           <div>
-            <div className="fw-semibold">Nombre usuario logeado</div>
-            <div className="text-muted small">Rol usuario</div>
+            <div className="fw-semibold">{authUser?.username || "Nombre usuario logeado"}</div>
+            <div className="text-muted small">{authUser ? formatRoles(authUser.roles) : "Rol usuario"}</div>
           </div>
         </div>
 
