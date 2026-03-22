@@ -1,10 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logoutUser } from "../auth/session";
 
 export default function Sidebar() {
+  const navigate = useNavigate();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+
+    try {
+      await logoutUser();
+    } finally {
+      navigate("/login", { replace: true, state: { skipSessionCheck: true } });
+    }
+  };
+
   return (
     <aside className="border-end bg-light p-3" style={{ width: "300px" }}>
       <div className="d-flex flex-column gap-4 h-100">
-        {/* Usuario */}
         <div className="d-flex align-items-center gap-3">
           <div
             className="rounded-circle bg-secondary bg-opacity-25"
@@ -23,7 +37,6 @@ export default function Sidebar() {
           </div>
         </div>
 
-        {/* Navegación */}
         <nav className="nav nav-pills flex-column gap-1">
           <NavItem to="/dashboard" icon="dashboard" label="Inicio" />
           <NavItem to="/search" icon="search" label="Búsqueda por SN" />
@@ -31,6 +44,18 @@ export default function Sidebar() {
           <NavItem to="/stock" icon="map" label="Mapa Almacén" />
           <NavItem to="/#" icon="list_alt" label="Listado Órdenes" />
         </nav>
+
+        <div className="mt-auto d-grid gap-2">
+          <button
+            type="button"
+            className="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2"
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+          >
+            <span className="material-symbols-outlined">logout</span>
+            {isLoggingOut ? "Cerrando sesión..." : "Cerrar sesión"}
+          </button>
+        </div>
       </div>
     </aside>
   );
@@ -47,10 +72,7 @@ function NavItem({ to, icon, label }: NavItemProps) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        [
-          "nav-link d-flex align-items-center gap-2",
-          isActive ? "active fw-semibold" : "text-dark",
-        ].join(" ")
+        ["nav-link d-flex align-items-center gap-2", isActive ? "active fw-semibold" : "text-dark"].join(" ")
       }
     >
       <span className="material-symbols-outlined">{icon}</span>
