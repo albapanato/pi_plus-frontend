@@ -11,7 +11,7 @@ type ExpeditionBoxesPanelProps = {
 
 function hasNonOperativeTerminals(box: BoxExpeditionDetail) {
   return box.terminales.some(
-    (terminal) => terminal.estado !== "operativo" && terminal.estado !== "pendiente_transito",
+    (terminal) => terminal.estado !== "operativo",
   );
 }
 
@@ -150,7 +150,7 @@ export default function ExpeditionBoxesPanel({ boxes, onAddBox, onRemoveBox }: E
                 </tr>
               ) : (
                 boxes.map((box) => {
-                  const hasWarnings = hasNonOperativeTerminals(box);
+                  
 
                   return (
                     <tr key={box.id}>
@@ -164,12 +164,10 @@ export default function ExpeditionBoxesPanel({ boxes, onAddBox, onRemoveBox }: E
                       <td className="text-center">
                         <span
                           className={
-                            hasWarnings
-                              ? "badge text-bg-warning"
-                              : "badge bg-success-subtle text-success-emphasis"
+                              "badge bg-success-subtle text-success-emphasis"
                           }
                         >
-                          {hasWarnings ? "Con incidencias" : "Operativa"}
+                          Operativa
                         </span>
                       </td>
 
